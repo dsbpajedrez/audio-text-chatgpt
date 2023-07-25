@@ -48,4 +48,7 @@ async def get_audio():
 #note: Notplaying in browser when using post request
 @app.post("/post-audio/")
 async def post_audio(file: UploadFile= File(...)):
-    print("hello")
+   open_audio = open("voice.mp3", "+rb")
+   converted_audio = convert_audio_to_text(open_audio)
+   print(converted_audio)
+    
